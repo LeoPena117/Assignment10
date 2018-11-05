@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block script %}
+<script src="{{ base_url() }}/../person.js"></script>
+{% endblock %}
+
+{% block title %}
+<a href="{{ path_for('home') }}">Back</a> - {{ person.getLastName() }}, {{ person.getFirstName() }}
+{% endblock %}
+
+{% block content %}
+<ul>
+	{% for pn in person.getPhoneNumbers() %}
+	<li><phone-number id="{{pn.getId()}}">{{ pn.getNumber() }}</phone-number></li>
+	{% endfor %}
+</ul>
+{% endblock %}

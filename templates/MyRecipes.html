@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+
+	{% block title %}The Bestest Recipes{% endblock %}
+      {% block content %}
+
+<div class="container">
+
+<form method="GET" action="">
+
+<table class="table">
+
+<tbody><tr>
+	<th></th>
+	<th><a href="{{base_url()}}/sort/Name">Name</a></th>
+	<th><a href="">Prep Time</a></th>
+	<th><a href="">Total Time</a></th>
+</tr>
+
+	{% for Object in Query %}
+<tr>
+	<td rowspan="2">
+		<img class="thumb" src="{{ Object.imageurl }}" width = "150px">
+	</td>
+	<td><a type="text" name="Id" href="{{base_url()}}/{{ Object.Id }}">{{ Object.name }}</a></td>
+	<td>{{ Object.preptime }} min</td>
+	<td>{{ Object.totaltime }} min</td>
+</tr>
+<tr>
+	<td colspan="4"> {{ Object.description}} </td></tr>
+</tr>
+{% endfor %}
+
+</tbody>
+</table>
+
+
+</form>
+</div>
+
+{% endblock %}

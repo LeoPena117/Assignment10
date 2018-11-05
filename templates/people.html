@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+	
+{% block title %}
+Address Book
+{% endblock %}
+
+{% block content %}
+
+<ul>
+	{% for person in people %}
+	<li><a href="{{ base_url() }}/person/{{ person.getId() }}">
+	{{ person.getLastName() }}, {{ person.getFirstName() }}</a></li>
+	{% endfor %}
+</ul>
+{% endblock %}

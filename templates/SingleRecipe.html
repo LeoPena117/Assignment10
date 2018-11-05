@@ -1,0 +1,39 @@
+	{% extends "layout.html" %}
+		
+
+{% block title %}The Bestest Recipes{% endblock %}
+      
+{% block content %}
+
+
+<div class="container">
+
+	<div>
+		<RecipeName id="{{ hold['ID'] }}">{{ hold["Name"] }}</RecipeName>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8">
+
+			<p> {{ hold["Desc"] }} </p>
+
+			<p><label>Prep Time:</label> {{ hold["pTime"] }}.</p>
+			<p><label>Total Time:</label> {{ hold["tTime"] }}.</p>
+
+			<h3>Steps</h3>
+
+			<ol>
+				{% for step in hold["steps"] %}
+				<li class="list"><step id="{{loop.index}}">{{ step }}</step></li>
+				{% endfor %}
+				<button class="btn btn-primary" id="new">+</button>
+			</ol>
+		</div>
+
+		<div class="col-md-2">
+			<img class="thumb" src= "{{ hold['imgUrl'] }}" width="300px">
+		</div>
+	</div>
+</div>
+
+{% endblock %}
